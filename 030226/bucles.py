@@ -1,0 +1,4 @@
+frutas=[1,2,3,7,4,8]
+
+for a in frutas:
+	print(a)

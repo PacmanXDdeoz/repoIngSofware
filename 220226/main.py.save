@@ -1,0 +1,13 @@
+from productos.py import agregar
+from productos.py import consultar
+from productos.py import eliminar
+inicio =1
+while inicio!=0:
+
+	if inicio==1:
+		agregar()
+	elif inicio==2:
+		consultar()
+	elif	inicio ==3:
+		eliminar()
+
