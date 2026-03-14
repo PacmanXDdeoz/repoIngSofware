@@ -1,0 +1,4 @@
+docker client -- Terminal
+docker host -- Motor
+
+Microservicios -- Partiendo cada parte del proyecto
