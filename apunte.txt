@@ -1,4 +1,20 @@
 docker client -- Terminal
 docker host -- Motor
+docker hub --
 
 Microservicios -- Partiendo cada parte del proyecto
+
+
+sudo docker exec -it [Nombre del docker] psql -U [usuario] -d [base de datos]   Entrar al servicio
+sudo docker ps -a                                                               Enlistar contenedores
+sudo docker start mi-db-docker                                                  Iniciar servicio del contenedor
+sudo netstat -tunlp                                                             Verificar puertos ocupados
+
+sudo docker run --name [Nombre del contenedor] \
+-e POSTGRES_PASSWORD=[contraseña sin comillas] \
+-p [puerto desocupado]:5432 \
+-d [base de datos]                                                              Crear nuevo contenedor
+
+sudo docker exec -u 0 -it [nombre del contenedor] bash                          Entrar al contenedor
+
+sudo docker images                                                              Enlista las imagenes    
