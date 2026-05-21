@@ -1,0 +1,13 @@
+{% extends "base_template.html" %}
+{% block title %}Empleados{% endblock %}
+
+{% block content %}
+<main>
+        <ol>
+        {% for i in data %}
+                <li style="color: blue">{{ i }}</li>
+        {% endfor %}
+        </ol>
+        <a href="{{ url_for("main") }}">Regresar</a>
+</main>
+{% endblock %}

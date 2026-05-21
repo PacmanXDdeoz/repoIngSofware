@@ -1,0 +1,24 @@
+{% extends "base_template.html" %}
+{% block title %}Empleados{% endblock %}
+
+{% block content %}
+<div>
+        <form action="/productos/form" method="post">
+        <label>Ingresa el producto:
+                <input type="text" name="producto">
+        </label>
+        <label>Ingresa el precio:
+                <input type="number" name="precio">
+        </label>
+                <button type="submit">Aceptar</button>
+        </form>
+</div>
+
+<div>
+        <ul>
+        {% for m in data %}
+                <li>{{ m }}</li>
+        {% endfor %}
+        </ul>
+</div>
+{% endblock %}

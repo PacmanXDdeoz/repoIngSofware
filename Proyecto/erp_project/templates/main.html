@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<header>
+    <a href="{{ url_for('main') }}"><div>Logo</div></a>
+    <nav>
+        <a href="{{ url_for('library') }}"><div>Biblioteca</div></a>
+    </nav>
+    <a href="{{ url_for('index') }}"><button>Logout</button></a>
+</header>
+<main>
+    
+</main>
+{% endblock %}

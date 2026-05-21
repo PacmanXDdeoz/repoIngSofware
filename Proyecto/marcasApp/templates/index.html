@@ -1,0 +1,21 @@
+{% extends "base_template.html" %}
+{% block title %}Marcas{% endblock %}
+
+{% block content %}
+<header>
+	<a href="{{ url_for("empleados") }}">Empleados</a>
+</header>
+<main>
+	<form action="/guardar_marca" method="POST">
+		<label for="marca">Ingresa tu marca:
+			<input type="text" id="marca" name="nombre">
+			<button type="submit">Guardar</button>
+		</label>
+	</form>
+	<ol>
+		{% for i in data %}
+		<li>{{ i }}</li>
+		{% endfor %}
+	</ol>
+</main>
+{% endblock %}

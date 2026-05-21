@@ -1,0 +1,25 @@
+{% extends "base_template.html" %}
+
+{% block title %}Empleados{% endblock %}
+
+{% block content %}
+<div>
+	<form action="/empleados/form" method="post">
+	<label>Ingresa tu nombre: 
+		<input type="text" name="empleado">
+	</label>
+	<label>Ingresa tu puesto: 
+                <input type="text" name="puesto">
+        </label>
+		<button type="submit">Aceptar</button>
+	</form>
+</div>
+
+<div>
+	<ul>
+	{% for m in data %}
+		<li>{{ m }}</li>
+	{% endfor %}
+	</ul>	
+</div>
+{% endblock %}

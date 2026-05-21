@@ -1,20 +1,32 @@
 docker client -- Terminal
 docker host -- Motor
-docker hub --
+docker hub -- Contenedor
 
 Microservicios -- Partiendo cada parte del proyecto
 
 
-sudo docker exec -it [Nombre del docker] psql -U [usuario] -d [base de datos]   Entrar al servicio
+sudo docker exec -it [Nombre del docker] psql -U [usuario] -d [base de datos]   Entrar al servicio 
 sudo docker ps -a                                                               Enlistar contenedores
-sudo docker start mi-db-docker                                                  Iniciar servicio del contenedor
+sudo docker start [Nombre del docker]                                                  Iniciar servicio del contenedor
 sudo netstat -tunlp                                                             Verificar puertos ocupados
 
 sudo docker run --name [Nombre del contenedor] \
 -e POSTGRES_PASSWORD=[contraseña sin comillas] \
 -p [puerto desocupado]:5432 \
--d [base de datos]                                                              Crear nuevo contenedor
+-d [base de datos]                                                              Crear nuevo contenedor (1)
 
-sudo docker exec -u 0 -it [nombre del contenedor] bash                          Entrar al contenedor
+sudo docker exec -u 0 -it [nombre del contenedor] bash                          Entrar al contenedor (2)
 
-sudo docker images                                                              Enlista las imagenes    
+sudo docker images                                                              Enlista las imagenes
+
+sudo docker network create [Nombre de la red]                                   Crear una red local 
+sudo docker network ls                                                          Enlistar las redes
+
+sudo docker run --name [Nombre del contenedor] --network mi_red_interna\
+-e POSTGRES_PASSWORD=[contraseña sin comillas] \
+-d [base de datos]                                                              Crear nuevo contenedor con un red interna desde otro docker
+
+sudo docker network connect [red creada] [Contenedor con debian]                Conectar red con otro contenedor
+
+sudo docker network inspect bridge                                              Verificar direcciónes ip de los contenedores
+

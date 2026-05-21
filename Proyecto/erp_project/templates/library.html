@@ -1,0 +1,33 @@
+{% extends "base_template.html" %}
+{% block title %}Biblioteca{% endblock %}
+
+{% block content %}
+<header>
+    <a href="{{ url_for('main') }}"><div>Logo</div></a>
+    <nav>
+        <a href="{{ url_for('library') }}"><div>Biblioteca</div></a>
+    </nav>
+    <a href="{{ url_for('index') }}"><button>Logout</button></a>
+</header>
+
+<main>
+    <table>
+        <tr>
+            <td>Titulo</td>
+            <td>Autor</td>
+            <td>Fecha de publicación</td>
+            <td>Genero</td>
+            <td>Acciones</td>
+        </tr>
+        {% for books in data %}
+        <tr>
+            <td>{{ books[1] }}</td>
+            <td>{{ books[2] }}</td>
+            <td>{{ books[3] }}</td>
+            <td>{{ books[4] }}</td>
+            <td><a href="/static/documents/El_que_susurra_en_la_oscuridad-H._P._Lovecraft.pdf"><button>Leer</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</main>
+{% endblock %}

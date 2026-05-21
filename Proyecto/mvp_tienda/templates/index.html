@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+{% block title %}Tienda{% endblock %}
+
+{% block content %}
+<header class="hindex">
+	<h1>TIENDA</h1>
+</header>
+
+<main class="mindex">
+	<sidebar>
+		<a href="{{ url_for("clientes") }}"><button>Clientes</button></a>
+		<a href="{{ url_for("productos") }}"><button>Productos</button></a>
+		<a href="{{ url_for("ventas") }}"><button>Ventas</button></a>
+	</sidebar>
+</main>
+{% endblock %}

@@ -1,0 +1,39 @@
+from flask import Flask, render_template, redirect, request, session
+from database import getConnection
+
+app = Flask(__name__)
+
+con=getConnection()
+cursor=con.cursor()
+
+@app.route('/')
+def index():
+	return render_template('index.html')
+
+@app.route('/signup_form')
+def signup_form():
+	return render_template('signup.html')
+
+@app.route('/signup', methods=['POST'])
+def signup():
+	name=request.form['name']
+	ap=request.form['ap']
+	user=request.form['username']
+	email=request.form['email']
+	pas=request.form['pass']
+	cursor.execute("insert into users (name, lastname, username, email, password) values (%s, %s, %s, %s, crypt(%s, gen_salt('bf')))", (name, ap, user, email, pas))
+	con.commit()
+	return redirect('/')
+
+@app.route('/login', methods=['POST'])
+def login():
+	email=request.form['email']
+	pas=request.form['pass']
+	cursor.execute("select id, password from users where email = %s, and password = crypt(%s, password)")
+	result = cursor.fetchall()
+
+	if result:
+		session['user_id'] = user[0]
+		return render_template('main.html')
+	else:
+		return

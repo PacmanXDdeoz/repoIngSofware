@@ -1,0 +1,33 @@
+{% extends "base_template.html" %}
+{% block title %}Registrar{% endblock %}
+
+{% block content %}
+<main>
+        <div>
+                <h1>Actualizar a cliente</h1>
+        <div>
+                <form action="/clientes/update" method="post">
+		<label>ID del usuario a modificar:
+			<input type="number" name="id">
+		</label>
+                <label>Nombre:
+                        <input type="text" name="nombre"/>
+                </label>
+                <label>Correo:
+                        <input type="text" name="correo"/>
+                </label>
+                <label>Telefono:
+                        <input type="text" name="telefono"/>
+                </label>
+		<label>
+			<select name="status">
+				<option value="true">Activo</option>
+				<option value="false">Inactivo</option>
+			</select>
+		</label>
+                <button type="submit">Registrar</button>
+                </form>
+        </div>
+        </div>
+</main>
+{% endblock %}

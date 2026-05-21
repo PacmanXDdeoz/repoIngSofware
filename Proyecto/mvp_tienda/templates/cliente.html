@@ -1,0 +1,34 @@
+{% extends "base_template.html" %}
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+<header>
+	<nav>
+		<a href="{{ url_for('registroC') }}"><button>Registrar nuevo cliente</button></a>
+		<a href="{{ url_for('main') }}"><button>Volver</button></a>
+	</nav>
+</header>
+<main>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>NOMBRE</th>
+			<th>CORREO</th>
+			<th>TELEFONO</th>
+			<th>STATUS</th>
+			<th>ACCIONES</th>
+		</tr>
+		{% for cl in data %}
+		<tr>
+			<td>{{ cl[0] }}</td>
+			<td>{{ cl[1] }}</td>
+			<td>{{ cl[2] }}</td>
+			<td>{{ cl[3] }}</td>
+			<td>{{ cl[4] }}</td>
+			<td><a href="{{ url_for('updateC') }}"><button>editar</button></a> || <a href="{{ url_for('clientes')
+					}}"><button>Borrar</button><a>
+		</tr>
+		{% endfor %}
+	</table>
+</main>
+{% endblock %}

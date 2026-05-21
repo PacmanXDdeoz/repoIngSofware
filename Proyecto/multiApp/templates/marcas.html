@@ -1,0 +1,22 @@
+{% extends "base_template.html" %}
+
+{% block title %}Marcas{% endblock %}
+
+{% block content %}
+<div> 
+        <form action="/marcas/form" method="POST">
+        <label for="marcas">Ingresa una marca:
+                <input type="text" name="marca">
+                <button type="submit">Aceptar</button>
+        </label>
+        </form>
+</div>  
+
+<div> 
+        <ul>
+        {% for m in data %}
+                <li>{{ m }}</li>
+        {% endfor %}
+        </ul>    
+</div>
+{% endblock %}

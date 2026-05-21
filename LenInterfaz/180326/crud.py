@@ -3,10 +3,8 @@ from base import getConnection
 if getConnection:
 	con=getConnection()
 	cursor = con.cursor()
-
 	while True:
 		try:
-			print('1. Consultar')
 			print('2. Insertar')
 			print('3. Actualizar')
 			print('4. Eliminar')
@@ -14,6 +12,7 @@ if getConnection:
 			op = int(input('Elige una opcion: '))
 			match op:
 				case 1:
+					cursor.execute('select * from users')
 					cursor.execute('select * from users')
 					consulta = cursor.fetchall()
 					for us in consulta:
